@@ -1,49 +1,130 @@
 {
-  "name": "cz-typography",
-  "version": "1.0.0",
-  "main": "src/index.js",
-  "exports": {
-    ".": "./src/index.js",
-    "./react": "./src/TypoWrapper.js"
-  },
-  "peerDependencies": {
-    "react": ">=16.8.0"
-  },
-  "devDependencies": {
-    "react": "^18.3.1"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/OfficialVysko/cz-typography.git"
-  },
-  "author": "Jan Vyskočil",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/OfficialVysko/cz-typography/issues"
-  },
-  "homepage": "https://github.com/OfficialVysko/cz-typography#readme",
-  "description": "Easily fix Czech typography with JavaScript and React.",
-  "keywords": [
-    "typography",
-    "czech",
-    "cz",
-    "non-breaking space",
-    "nbsp",
-    "text processing",
-    "text formatting",
-    "fix spaces",
-    "czech typography",
-    "react",
-    "react component",
-    "string manipulation",
-    "prepositions",
-    "conjunctions",
-    "fixCzech",
-    "typografické mezery",
-    "čeština",
-    "typografie"
-  ]
+    "name": "cz-typography",
+    "version": "2.0.0",
+    "description": "Universal Czech typography fixer for JavaScript, React, Next.js, and any SSR framework. Non-breaking spaces after one-letter prepositions, units, dates, ordinals and more.",
+    "type": "module",
+    "main": "./dist/index.cjs",
+    "module": "./dist/index.mjs",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.mjs",
+            "require": "./dist/index.cjs"
+        },
+        "./react": {
+            "types": "./dist/react.d.ts",
+            "import": "./dist/react.mjs",
+            "require": "./dist/react.cjs"
+        },
+        "./next": {
+            "types": "./dist/next/index.d.ts",
+            "import": "./dist/next/index.mjs",
+            "require": "./dist/next/index.cjs"
+        },
+        "./next/middleware": {
+            "types": "./dist/next/middleware.d.ts",
+            "import": "./dist/next/middleware.mjs",
+            "require": "./dist/next/middleware.cjs"
+        },
+        "./next/loader": {
+            "default": "./dist/next/loader.cjs"
+        },
+        "./package.json": "./package.json"
+    },
+    "files": [
+        "dist",
+        "README.md",
+        "CHANGELOG.md",
+        "LICENSE.md"
+    ],
+    "sideEffects": false,
+    "engines": {
+        "node": ">=18"
+    },
+    "scripts": {
+        "build": "tsup",
+        "dev": "tsup --watch",
+        "test": "vitest run",
+        "test:watch": "vitest",
+        "test:coverage": "vitest run --coverage",
+        "lint": "eslint src tests",
+        "lint:fix": "eslint src tests --fix",
+        "format": "prettier --write \"src/**/*.{js,jsx,cjs,mjs}\" \"tests/**/*.{js,jsx}\" \"*.{md,json}\"",
+        "format:check": "prettier --check \"src/**/*.{js,jsx,cjs,mjs}\" \"tests/**/*.{js,jsx}\" \"*.{md,json}\"",
+        "prepublishOnly": "npm run lint && npm test && npm run build"
+    },
+    "peerDependencies": {
+        "next": ">=13.0.0",
+        "react": ">=18.0.0",
+        "react-dom": ">=18.0.0"
+    },
+    "peerDependenciesMeta": {
+        "next": {
+            "optional": true
+        },
+        "react": {
+            "optional": true
+        },
+        "react-dom": {
+            "optional": true
+        }
+    },
+    "devDependencies": {
+        "@eslint/js": "^9.5.0",
+        "@testing-library/dom": "^10.4.1",
+        "@testing-library/react": "^16.0.0",
+        "@types/react": "^18.3.3",
+        "@types/react-dom": "^18.3.0",
+        "@vitest/coverage-v8": "^1.6.0",
+        "eslint": "^9.5.0",
+        "eslint-plugin-react": "^7.34.3",
+        "eslint-plugin-react-hooks": "^5.0.0",
+        "globals": "^15.6.0",
+        "happy-dom": "^15.0.0",
+        "next": "^14.2.5",
+        "prettier": "^3.3.2",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1",
+        "tsup": "^8.1.0",
+        "typescript": "^5.5.2",
+        "vitest": "^1.6.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/OfficialVysko/cz-typography.git"
+    },
+    "author": "Jan Vyskočil <https://janvyskocil.cz>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/OfficialVysko/cz-typography/issues"
+    },
+    "homepage": "https://github.com/OfficialVysko/cz-typography#readme",
+    "keywords": [
+        "typography",
+        "czech",
+        "cz",
+        "non-breaking-space",
+        "nbsp",
+        "text-processing",
+        "text-formatting",
+        "fix-spaces",
+        "czech-typography",
+        "react",
+        "react-component",
+        "nextjs",
+        "next",
+        "next-middleware",
+        "app-router",
+        "ssr",
+        "string-manipulation",
+        "prepositions",
+        "conjunctions",
+        "fixCzech",
+        "typografické-mezery",
+        "čeština",
+        "typografie",
+        "mezera",
+        "předložka"
+    ]
 }
